@@ -8,7 +8,14 @@
   "tasks": {
     "dev": "deno run --allow-net=api.themoviedb.org --allow-env=HOME --allow-read --allow-write --watch src/main.ts",
     "start": "deno run --allow-net=api.themoviedb.org --allow-env=HOME --allow-read --allow-write src/main.ts",
-    "compile": "deno compile --allow-net=api.themoviedb.org --allow-env=HOME --allow-read --allow-write --output build/rname src/main.ts",
+    "clean": "rm -rf build",
+    "compile:base": "deno compile --allow-net=api.themoviedb.org --allow-env=HOME --allow-read --allow-write src/main.ts",
+    "compile": "deno task compile:base --output build/rname",
+    "compile:all": "deno task clean && deno task compile:linux && deno task compile:mac && deno task compile:mac:arm && deno task compile:windows",
+    "compile:linux": "deno task compile:base --output build/linux/rname-x86_64-unknown-linux-gnu --target x86_64-unknown-linux-gnu src/main.ts",
+    "compile:mac": "deno task compile:base --output build/mac/rname-x86_64-apple-darwin --target x86_64-apple-darwin",
+    "compile:mac:arm": "deno task compile:base --output build/mac/rname-aarch64-apple-darwin --target aarch64-apple-darwin",
+    "compile:windows": "deno task compile:base --output build/windows/rname-x86_64-pc-windows-msvc --target x86_64-pc-windows-msvc",
     "coverage": "deno test --coverage=tmp_coverage && deno coverage tmp_coverage && rm -rf tmp_coverage"
   }
 }
