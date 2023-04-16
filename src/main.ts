@@ -5,7 +5,7 @@ import config from "./cmd/config.ts";
 
 await new Command()
   .name("rname")
-  .version("0.2.0")
+  .version("0.2.1")
   .description("Rename TV and Movies for Plex, with the help of TMDb")
   .action(function () {
     this.showHelp();
