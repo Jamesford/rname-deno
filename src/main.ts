@@ -7,7 +7,6 @@ await new Command()
   .name("rname")
   .version("0.2.0")
   .description("Rename TV and Movies for Plex, with the help of TMDb")
-  .globalOption("-d, --debug", "Display debug messages.")
   .action(function () {
     this.showHelp();
   })
