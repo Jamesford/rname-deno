@@ -8,7 +8,7 @@
   "tasks": {
     "dev": "deno run --allow-net=api.themoviedb.org --allow-env=HOME --allow-read --allow-write --watch src/main.ts",
     "start": "deno run --allow-net=api.themoviedb.org --allow-env=HOME --allow-read --allow-write src/main.ts",
-    "compile": "deno compile --allow-net=api.themoviedb.org --allow-env=HOME --allow-read --allow-write --output rname src/main.ts",
+    "compile": "deno compile --allow-net=api.themoviedb.org --allow-env=HOME --allow-read --allow-write --output build/rname src/main.ts",
     "coverage": "deno test --coverage=tmp_coverage && deno coverage tmp_coverage && rm -rf tmp_coverage"
   }
 }
